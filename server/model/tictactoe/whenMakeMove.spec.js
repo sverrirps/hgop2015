@@ -88,4 +88,76 @@ describe('when make move command', function(){
 
     });
   });
+
+  describe("When three identical symbols are in the same row", function(){
+    it('player with that symbol should win',function(){
+      given = given.concat([{
+        id:"12346",
+        event:"MoveMade",
+        userName:"Halli",
+        name:"TheFirstGame",
+        x:0,
+        y:0,
+        side:'X',
+        timeStamp: "2015.12.02T11:30:50"
+      },
+      {
+        id:"12347",
+        event:"MoveMade",
+        userName:"Gulli",
+        name:"TheFirstGame",
+        x:1,
+        y:0,
+        side:'O',
+        timeStamp: "2015.12.02T11:30:55"
+      },
+      {
+        id:"12348",
+        event:"MoveMade",
+        userName:"Halli",
+        name:"TheFirstGame",
+        x:0,
+        y:1,
+        side:'X',
+        timeStamp: "2015.12.02T11:31:00"
+      },
+      {
+        id:"12349",
+        event:"MoveMade",
+        userName:"Gulli",
+        name:"TheFirstGame",
+        x:1,
+        y:1,
+        side:'O',
+        timeStamp: "2015.12.02T11:31:05"
+      }]);
+
+      when={
+        id:"12350",
+        comm:"MakeMove",
+        userName : "Halli",
+        x:0,
+        y:2,
+        side:'X',
+        timeStamp: "2015.12.02T11:31:10"
+      };
+
+      then=[{
+        id:"12350",
+        event:"X won",
+        userName:"Halli",
+        name:"TheFirstGame",
+        x:0,
+        y:2,
+        side:'X',
+        timeStamp: "2015.12.02T11:31:10"
+      }];
+
+      var actualEvents = tictactoeCommandHandler(given).executeCommand(when);
+
+      JSON.stringify(actualEvents).should.be.exactly(JSON.stringify(then));
+
+    });
+  });
+
 });

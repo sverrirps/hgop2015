@@ -15,7 +15,7 @@ module.exports = function tictactoeCommandHandler(events) {
     var eventHandler = eventHandlers[event.event];
     if(eventHandler) eventHandler(event);
   });
-
+//
   var handlers = {
     "CreateGame": function (cmd) {
       {
@@ -62,6 +62,23 @@ module.exports = function tictactoeCommandHandler(events) {
           timeStamp: cmd.timeStamp
         }]
       }
+      //Horizontal win
+      if((gameState.board[0][0] == cmd.side && gameState.board[0][1] == cmd.side && cmd.x == 0 && cmd.y == 2)
+      || (gameState.board[0][0] == cmd.side && gameState.board[0][2] == cmd.side && cmd.x == 0 && cmd.y == 1)
+      || (gameState.board[0][1] == cmd.side && gameState.board[0][2] == cmd.side && cmd.x == 0 && cmd.y == 0)){
+        return [{
+          id: cmd.id,
+          event: cmd.side + " won",
+          userName: cmd.userName,
+          name:gameState.gameCreatedEvent.name,
+          x:cmd.x,
+          y:cmd.y,
+          side:cmd.side,
+          timeStamp: cmd.timeStamp
+        }]
+      }
+      
+
       return [{
         id: cmd.id,
         event: "MoveMade",
