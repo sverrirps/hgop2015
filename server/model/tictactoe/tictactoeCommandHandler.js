@@ -68,7 +68,7 @@ module.exports = function tictactoeCommandHandler(events) {
       || (gameState.board[0][1] == cmd.side && gameState.board[0][2] == cmd.side && cmd.x == 0 && cmd.y == 0)){
         return [{
           id: cmd.id,
-          event: cmd.side + " won",
+          event: cmd.side + " won, with three in top row",
           userName: cmd.userName,
           name:gameState.gameCreatedEvent.name,
           x:cmd.x,
@@ -83,7 +83,7 @@ module.exports = function tictactoeCommandHandler(events) {
       || (gameState.board[1][1] == cmd.side && gameState.board[1][2] == cmd.side && cmd.x == 1 && cmd.y == 0)){
         return [{
           id: cmd.id,
-          event: cmd.side + " won",
+          event: cmd.side + " won, with three in middle row",
           userName: cmd.userName,
           name:gameState.gameCreatedEvent.name,
           x:cmd.x,

@@ -144,7 +144,7 @@ describe('when make move command', function(){
 
       then=[{
         id:"12350",
-        event:"X won",
+        event:"X won, with three in top row",
         userName:"Halli",
         name:"TheFirstGame",
         x:0,
@@ -215,7 +215,7 @@ describe('when make move command', function(){
 
       then=[{
         id:"12350",
-        event:"X won",
+        event:"X won, with three in middle row",
         userName:"Halli",
         name:"TheFirstGame",
         x:1,
