@@ -123,6 +123,21 @@ module.exports = function tictactoeCommandHandler(events) {
         }]
       }
 
+      if((gameState.board[0][1] == cmd.side && gameState.board[1][1] == cmd.side && cmd.x == 2 && cmd.y == 1)
+      || (gameState.board[1][1] == cmd.side && gameState.board[2][1] == cmd.side && cmd.x == 0 && cmd.y == 1)
+      || (gameState.board[2][1] == cmd.side && gameState.board[0][1] == cmd.side && cmd.x == 1 && cmd.y == 1)){
+        return [{
+          id: cmd.id,
+          event: cmd.side + " won, with three in middle column",
+          userName: cmd.userName,
+          name:gameState.gameCreatedEvent.name,
+          x:cmd.x,
+          y:cmd.y,
+          side:cmd.side,
+          timeStamp: cmd.timeStamp
+        }]
+      }
+
 
       return [{
         id: cmd.id,
