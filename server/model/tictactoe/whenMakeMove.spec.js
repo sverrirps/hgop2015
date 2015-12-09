@@ -152,7 +152,6 @@ describe('when make move command', function(){
         side:'X',
         timeStamp: "2015.12.02T11:31:10"
         },
-
         {
         id:"12350",
         event:"X won, with three in top row",
@@ -226,6 +225,16 @@ describe('when make move command', function(){
 
       then=[{
         id:"12350",
+        event:"MoveMade",
+        userName : "Halli",
+        name:"TheFirstGame",
+        x:1,
+        y:2,
+        side:'X',
+        timeStamp: "2015.12.02T11:31:10"
+        },
+        {
+        id:"12350",
         event:"X won, with three in middle row",
         userName:"Halli",
         name:"TheFirstGame",
@@ -298,6 +307,16 @@ describe('when make move command', function(){
 
       then=[{
         id:"12350",
+        event:"MoveMade",
+        userName : "Halli",
+        name:"TheFirstGame",
+        x:2,
+        y:2,
+        side:'X',
+        timeStamp: "2015.12.02T11:31:10"
+        },
+        {
+        id:"12350",
         event:"X won, with three in bottom row",
         userName:"Halli",
         name:"TheFirstGame",
@@ -368,6 +387,16 @@ describe('when make move command', function(){
       };
 
       then=[{
+        id:"12350",
+        event:"MoveMade",
+        userName : "Halli",
+        name:"TheFirstGame",
+        x:2,
+        y:0,
+        side:'X',
+        timeStamp: "2015.12.02T11:31:10"
+        },
+        {
         id:"12350",
         event:"X won, with three in left column",
         userName:"Halli",
@@ -440,6 +469,16 @@ describe('when make move command', function(){
 
       then=[{
         id:"12350",
+        event:"MoveMade",
+        userName : "Halli",
+        name:"TheFirstGame",
+        x:2,
+        y:1,
+        side:'X',
+        timeStamp: "2015.12.02T11:31:10"
+        },
+        {
+        id:"12350",
         event:"X won, with three in middle column",
         userName:"Halli",
         name:"TheFirstGame",
@@ -510,6 +549,16 @@ describe('when make move command', function(){
       };
 
       then=[{
+        id:"12350",
+        event:"MoveMade",
+        userName : "Halli",
+        name:"TheFirstGame",
+        x:2,
+        y:2,
+        side:'X',
+        timeStamp: "2015.12.02T11:31:10"
+        },
+        {
         id:"12350",
         event:"X won, with three in right column",
         userName:"Halli",
@@ -582,6 +631,16 @@ describe('when make move command', function(){
 
       then=[{
         id:"12350",
+        event:"MoveMade",
+        userName : "Halli",
+        name:"TheFirstGame",
+        x:2,
+        y:2,
+        side:'X',
+        timeStamp: "2015.12.02T11:31:10"
+        },
+        {
+        id:"12350",
         event:"X won, with three in descending diagonal",
         userName:"Halli",
         name:"TheFirstGame",
@@ -652,6 +711,16 @@ describe('when make move command', function(){
       };
 
       then=[{
+        id:"12350",
+        event:"MoveMade",
+        userName : "Halli",
+        name:"TheFirstGame",
+        x:2,
+        y:0,
+        side:'X',
+        timeStamp: "2015.12.02T11:31:10"
+        },
+        {
         id:"12350",
         event:"X won, with three in ascending diagonal",
         userName:"Halli",
