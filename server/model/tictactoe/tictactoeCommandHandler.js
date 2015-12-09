@@ -66,7 +66,17 @@ module.exports = function tictactoeCommandHandler(events) {
       if((gameState.board[0][0] == cmd.side && gameState.board[0][1] == cmd.side && cmd.x == 0 && cmd.y == 2)
       || (gameState.board[0][0] == cmd.side && gameState.board[0][2] == cmd.side && cmd.x == 0 && cmd.y == 1)
       || (gameState.board[0][1] == cmd.side && gameState.board[0][2] == cmd.side && cmd.x == 0 && cmd.y == 0)){
-        return [{
+
+          return [{id: cmd.id,
+          event: "MoveMade",
+          userName: cmd.userName,
+          name:gameState.gameCreatedEvent.name,
+          x:cmd.x,
+          y:cmd.y,
+          side:cmd.side,
+          timeStamp: cmd.timeStamp
+        },
+        {
           id: cmd.id,
           event: cmd.side + " won, with three in top row",
           userName: cmd.userName,
@@ -108,6 +118,7 @@ module.exports = function tictactoeCommandHandler(events) {
         }]
       }
 
+      //Vertical win
       if((gameState.board[0][0] == cmd.side && gameState.board[1][0] == cmd.side && cmd.x == 2 && cmd.y == 0)
       || (gameState.board[1][0] == cmd.side && gameState.board[2][0] == cmd.side && cmd.x == 0 && cmd.y == 0)
       || (gameState.board[2][0] == cmd.side && gameState.board[0][0] == cmd.side && cmd.x == 1 && cmd.y == 0)){
@@ -153,6 +164,7 @@ module.exports = function tictactoeCommandHandler(events) {
         }]
       }
 
+      //diagonal win
       if((gameState.board[0][0] == cmd.side && gameState.board[1][1] == cmd.side && cmd.x == 2 && cmd.y == 2)
       || (gameState.board[1][1] == cmd.side && gameState.board[2][2] == cmd.side && cmd.x == 0 && cmd.y == 0)
       || (gameState.board[2][2] == cmd.side && gameState.board[0][0] == cmd.side && cmd.x == 1 && cmd.y == 1)){

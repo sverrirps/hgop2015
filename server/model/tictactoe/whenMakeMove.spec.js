@@ -144,6 +144,17 @@ describe('when make move command', function(){
 
       then=[{
         id:"12350",
+        event:"MoveMade",
+        userName : "Halli",
+        name:"TheFirstGame",
+        x:0,
+        y:2,
+        side:'X',
+        timeStamp: "2015.12.02T11:31:10"
+        },
+
+        {
+        id:"12350",
         event:"X won, with three in top row",
         userName:"Halli",
         name:"TheFirstGame",
