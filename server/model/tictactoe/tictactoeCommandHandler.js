@@ -93,6 +93,21 @@ module.exports = function tictactoeCommandHandler(events) {
         }]
       }
 
+      if((gameState.board[2][0] == cmd.side && gameState.board[2][1] == cmd.side && cmd.x == 2 && cmd.y == 2)
+      || (gameState.board[2][0] == cmd.side && gameState.board[2][2] == cmd.side && cmd.x == 2 && cmd.y == 1)
+      || (gameState.board[2][1] == cmd.side && gameState.board[2][2] == cmd.side && cmd.x == 2 && cmd.y == 0)){
+        return [{
+          id: cmd.id,
+          event: cmd.side + " won, with three in bottom row",
+          userName: cmd.userName,
+          name:gameState.gameCreatedEvent.name,
+          x:cmd.x,
+          y:cmd.y,
+          side:cmd.side,
+          timeStamp: cmd.timeStamp
+        }]
+      }
+
 
       return [{
         id: cmd.id,
