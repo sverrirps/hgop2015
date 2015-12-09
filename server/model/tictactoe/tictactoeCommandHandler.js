@@ -77,40 +77,7 @@ module.exports = function tictactoeCommandHandler(events) {
           timeStamp: cmd.timeStamp
         }]
       }
-<<<<<<< HEAD
 
-      
-=======
-      //Vertical win
-      if((gameState.board[0][0] == cmd.side && gameState.board[1][0] == cmd.side && gameState.board[2][0] == cmd.side)
-      || (gameState.board[0][1] == cmd.side && gameState.board[1][1] == cmd.side && gameState.board[2][1] == cmd.side)
-      || (gameState.board[0][2] == cmd.side && gameState.board[1][2] == cmd.side && gameState.board[2][2] == cmd.side)){
-        return [{
-          id: cmd.id,
-          event: cmd.side + "won, with three in same column",
-          userName: cmd.userName,
-          name:gameState.gameCreatedEvent.name,
-          x:cmd.x,
-          y:cmd.y,
-          side:cmd.side,
-          timeStamp: cmd.timeStamp
-        }]
-      }
-      //diagonal win
-      if((gameState.board[0][0] == cmd.side && gameState.board[1][1] == cmd.side && gameState.board[2][2] == cmd.side)
-      || (gameState.board[2][0] == cmd.side && gameState.board[1][1] == cmd.side && gameState.board[0][2] == cmd.side)){
-        return [{
-          id: cmd.id,
-          event: cmd.side + "won, with three in a diagonal",
-          userName: cmd.userName,
-          name:gameState.gameCreatedEvent.name,
-          x:cmd.x,
-          y:cmd.y,
-          side:cmd.side,
-          timeStamp: cmd.timeStamp
-        }]
-      }
->>>>>>> d7f7f4f71224e4eea6ef747f28b87ac0636850d5
 
       return [{
         id: cmd.id,

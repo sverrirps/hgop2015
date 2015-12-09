@@ -1,12 +1,36 @@
-[31m>> [39mMocha exploded!
-[31m>> [39mSyntaxError: Unexpected token <<[31m
->> [39m    at exports.runInThisContext (vm.js:53:16)[31m
->> [39m    at Module._compile (module.js:414:25)[31m
->> [39m    at Object.Module._extensions..js (module.js:442:10)[31m
->> [39m    at Module.load (module.js:356:32)[31m
->> [39m    at Function.Module._load (module.js:311:12)[31m
->> [39m    at Module.require (module.js:366:17)[31m
->> [39m    at require (module.js:385:17)[31m
->> [39m    at Object.<anonymous> (/home/vagrant/src/tictactoe/server/api/command.controller.js:5:24)[31m
->> [39m    at Module._compile (module.js:435:26)[31m
->> [39m    at Object.Module._extensions..js (module.js:442:10)
+
+[0m[0m
+Express server listening on 9000, in test mode
+[0m  GET /api/gameHistory[0m
+[90mPOST /api/createGame [32m200 [90m7ms - 127b[0m
+[90mGET /api/gameHistory/999 [32m200 [90m2ms - 127b[0m
+[2K[0G  [32m  ✓[0m[90m should respond with JSON array with created events for game [0m[31m(80ms)[0m
+
+[0m  In memory store[0m
+[2K[0G  [32m  ✓[0m[90m Should return empty array for unknown id [0m
+[2K[0G  [32m  ✓[0m[90m Should return events previously stored [0m
+[2K[0G  [32m  ✓[0m[90m should append stored events to events previously stored [0m
+
+[0m  tictactoe game context[0m
+[2K[0G  [32m  ✓[0m[90m should route command to instantiated tictactoe game with event stream from store and return and store generated events. Test using fakes/stubs. [0m
+[2K[0G  [32m  ✓[0m[90m should route command to instantiated tictactoe game with event stream from store and return generated events, using mock style tests. [0m
+
+[0m  create game command[0m
+[2K[0G  [32m  ✓[0m[90m should create game [0m
+[2K[0G  [32m  ✓[0m[90m should create game with another user another time [0m
+
+[0m  join game command[0m
+[2K[0G  [32m  ✓[0m[90m should join game [0m
+[2K[0G  [32m  ✓[0m[90m should reject joining of a non-existing game [0m
+
+[0m  when make move command[0m
+[0m    on new game[0m
+[2K[0G    [32m  ✓[0m[90m should join game [0m
+[0m    one previous move[0m
+[2K[0G    [32m  ✓[0m[90m placing move in same place should be illegal [0m
+[0m    When three identical symbols are in the same row[0m
+[2K[0G    [32m  ✓[0m[90m player with that symbol should win [0m
+
+
+[92m [0m[32m 13 passing[0m[90m (119ms)[0m
+
