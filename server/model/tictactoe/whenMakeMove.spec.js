@@ -738,4 +738,125 @@ describe('when make move command', function(){
     });
   });
 
+  describe("When all fields are occupied but there is no winner", function(){
+    it('the game should end with draw',function(){
+      given = given.concat([{
+        id:"12346",
+        event:"MoveMade",
+        userName:"Halli",
+        name:"TheFirstGame",
+        x:0,
+        y:0,
+        side:'X',
+        timeStamp: "2015.12.02T11:30:50"
+      },
+      {
+        id:"12347",
+        event:"MoveMade",
+        userName:"Gulli",
+        name:"TheFirstGame",
+        x:1,
+        y:0,
+        side:'O',
+        timeStamp: "2015.12.02T11:30:55"
+      },
+      {
+        id:"12348",
+        event:"MoveMade",
+        userName:"Halli",
+        name:"TheFirstGame",
+        x:1,
+        y:1,
+        side:'X',
+        timeStamp: "2015.12.02T11:31:00"
+      },
+      {
+        id:"12349",
+        event:"MoveMade",
+        userName:"Gulli",
+        name:"TheFirstGame",
+        x:2,
+        y:2,
+        side:'O',
+        timeStamp: "2015.12.02T11:31:05"
+      },
+      {
+        id:"12350",
+        event:"MoveMade",
+        userName:"Halli",
+        name:"TheFirstGame",
+        x:1,
+        y:2,
+        side:'X',
+        timeStamp: "2015.12.02T11:31:10"
+      },
+      {
+        id:"12351",
+        event:"MoveMade",
+        userName:"Gulli",
+        name:"TheFirstGame",
+        x:0,
+        y:1,
+        side:'O',
+        timeStamp: "2015.12.02T11:31:15"
+      },
+      {
+        id:"12352",
+        event:"MoveMade",
+        userName:"Halli",
+        name:"TheFirstGame",
+        x:2,
+        y:0,
+        side:'X',
+        timeStamp: "2015.12.02T11:31:20"
+      },
+      {
+        id:"12353",
+        event:"MoveMade",
+        userName:"Gulli",
+        name:"TheFirstGame",
+        x:0,
+        y:2,
+        side:'O',
+        timeStamp: "2015.12.02T11:31:25"
+      }]);
+
+      when={
+        id:"12354",
+        comm:"MakeMove",
+        userName : "Halli",
+        x:2,
+        y:1,
+        side:'X',
+        timeStamp: "2015.12.02T11:31:30"
+      };
+
+      then=[{
+        id:"12354",
+        event:"MoveMade",
+        userName : "Halli",
+        name:"TheFirstGame",
+        x:2,
+        y:1,
+        side:'X',
+        timeStamp: "2015.12.02T11:31:30"
+        },
+        {
+        id:"12354",
+        event:"X won, with three in ascending diagonal",
+        userName:"Halli",
+        name:"TheFirstGame",
+        x:2,
+        y:1,
+        side:'X',
+        timeStamp: "2015.12.02T11:31:30"
+      }];
+
+      var actualEvents = tictactoeCommandHandler(given).executeCommand(when);
+
+      JSON.stringify(actualEvents).should.be.exactly(JSON.stringify(then));
+
+    });
+  });
+
 });

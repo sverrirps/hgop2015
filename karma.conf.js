@@ -75,6 +75,16 @@ module.exports = function(config) {
 
     // Continuous Integration mode
     // if true, it capture browsers, run tests and exit
-    singleRun: false
+    singleRun: false,
+
+    reporters: ['progress', 'junit'],
+
+    //the default configuration
+    junitReporter: {
+        outputDir: 'test-reports', // results will be saved as $outputDir/$browserName.xml
+        outputFile: 'karma-junit-results.xml', // if included, results will be saved as $outputDir/$browserName/$outputFile
+        suite: 'karma', // suite will become the package name attribute in xml testsuite element
+        useBrowserName: true // add browser name to report and classes names
+    }
   });
 };
