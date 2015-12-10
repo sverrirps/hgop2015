@@ -258,15 +258,24 @@ module.exports = function tictactoeCommandHandler(events) {
         }]
       }
 
-      if ((gameState.board[0][0] != '') && (gameState.board[0][1] != '') && (gameState.board[0][2] != '')
-      && (gameState.board[1][0] != '') && (gameState.board[1][1] != '') && (gameState.board[1][2] != '')
-      && (gameState.board[2][0] != '') && (gameState.board[2][1] != '') && (gameState.board[2][2] != '')){
+      //Increase the counter for every occupied field.
+      var counter = 0;
+      for (var i = 0; i < 3; i++) {
+        for (var j = 0; j < 3; j++){
+          if (gameState.board[i][j] !== ""){
+            counter++;
+          }
+        }
+      }
+
+      //If 8 out of 9 fileds are occupied
+      if (counter === 8){
         return [{id: cmd.id,
           event: "MoveMade",
           userName: cmd.userName,
-          name: gameState.gameCreatedEvent.name,
+          name:gameState.gameCreatedEvent.name,
           x:cmd.x,
-          x:cmd.y,
+          y:cmd.y,
           side:cmd.side,
           timeStamp: cmd.timeStamp
         },
@@ -282,7 +291,7 @@ module.exports = function tictactoeCommandHandler(events) {
         }]
       }
 
-      return [{
+        return [{
         id: cmd.id,
         event: "MoveMade",
         userName: cmd.userName,

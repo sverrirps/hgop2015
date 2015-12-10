@@ -843,7 +843,7 @@ describe('when make move command', function(){
         },
         {
         id:"12354",
-        event:"X won, with three in ascending diagonal",
+        event:"Game ends with draw.",
         userName:"Halli",
         name:"TheFirstGame",
         x:2,
