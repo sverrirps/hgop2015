@@ -81,10 +81,10 @@ module.exports = function(config) {
 
     //the default configuration
     junitReporter: {
-        outputDir: 'test-reports', // results will be saved as $outputDir/$browserName.xml
+        outputDir: '', // results will be saved as $outputDir/$browserName.xml
         outputFile: 'karma-junit-results.xml', // if included, results will be saved as $outputDir/$browserName/$outputFile
         suite: 'karma', // suite will become the package name attribute in xml testsuite element
-        useBrowserName: true // add browser name to report and classes names
+        useBrowserName: false // add browser name to report and classes names
     }
   });
 };
