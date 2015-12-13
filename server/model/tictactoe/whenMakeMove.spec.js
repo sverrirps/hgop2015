@@ -9,13 +9,13 @@ describe('when make move command', function(){
       id:"1234",
       event:"GameCreated",
       name:"TheFirstGame",
-      userName: "Gulli",
+      userName: "Sverrir",
       timeStamp: "2015.12.02T11:29:44"
     }, {
       id:"12345",
       event:"GameJoined",
-      userName: "Halli",
-      otherUserName: "Gulli",
+      userName: "Eysteinn",
+      otherUserName: "Sverrir",
       timeStamp: "2015.12.02T11:30:50"
     }];
   });
@@ -25,7 +25,7 @@ describe('when make move command', function(){
       when={
         id:"12345",
         comm:"MakeMove",
-        userName : "Halli",
+        userName : "Eysteinn",
         x:0,
         y:1,
         side:'X',
@@ -34,7 +34,7 @@ describe('when make move command', function(){
       then=[{
         id:"12345",
         event:"MoveMade",
-        userName:"Halli",
+        userName:"Eysteinn",
         name:"TheFirstGame",
         x:0,
         y:1,
@@ -53,7 +53,7 @@ describe('when make move command', function(){
       given.push({
         id:"12345",
         event:"MoveMade",
-        userName:"Halli",
+        userName:"Eysteinn",
         name:"TheFirstGame",
         x:0,
         y:1,
@@ -64,7 +64,7 @@ describe('when make move command', function(){
       when={
         id:"12345",
         comm:"MakeMove",
-        userName : "Halli",
+        userName : "Eysteinn",
         x:0,
         y:1,
         side:'X',
@@ -74,7 +74,7 @@ describe('when make move command', function(){
       then=[{
         id:"12345",
         event:"IllegalMove",
-        userName:"Halli",
+        userName:"Eysteinn",
         name:"TheFirstGame",
         x:0,
         y:1,
@@ -94,7 +94,7 @@ describe('when make move command', function(){
       given = given.concat([{
         id:"12346",
         event:"MoveMade",
-        userName:"Halli",
+        userName:"Eysteinn",
         name:"TheFirstGame",
         x:0,
         y:0,
@@ -104,7 +104,7 @@ describe('when make move command', function(){
       {
         id:"12347",
         event:"MoveMade",
-        userName:"Gulli",
+        userName:"Sverrir",
         name:"TheFirstGame",
         x:1,
         y:0,
@@ -114,7 +114,7 @@ describe('when make move command', function(){
       {
         id:"12348",
         event:"MoveMade",
-        userName:"Halli",
+        userName:"Eysteinn",
         name:"TheFirstGame",
         x:0,
         y:1,
@@ -124,7 +124,7 @@ describe('when make move command', function(){
       {
         id:"12349",
         event:"MoveMade",
-        userName:"Gulli",
+        userName:"Sverrir",
         name:"TheFirstGame",
         x:1,
         y:1,
@@ -135,7 +135,7 @@ describe('when make move command', function(){
       when={
         id:"12350",
         comm:"MakeMove",
-        userName : "Halli",
+        userName : "Eysteinn",
         x:0,
         y:2,
         side:'X',
@@ -145,7 +145,7 @@ describe('when make move command', function(){
       then=[{
         id:"12350",
         event:"MoveMade",
-        userName : "Halli",
+        userName : "Eysteinn",
         name:"TheFirstGame",
         x:0,
         y:2,
@@ -155,7 +155,7 @@ describe('when make move command', function(){
         {
         id:"12350",
         event:"X won, with three in top row",
-        userName:"Halli",
+        userName:"Eysteinn",
         name:"TheFirstGame",
         x:0,
         y:2,
@@ -175,7 +175,7 @@ describe('when make move command', function(){
       given = given.concat([{
         id:"12346",
         event:"MoveMade",
-        userName:"Halli",
+        userName:"Eysteinn",
         name:"TheFirstGame",
         x:1,
         y:0,
@@ -185,7 +185,7 @@ describe('when make move command', function(){
       {
         id:"12347",
         event:"MoveMade",
-        userName:"Gulli",
+        userName:"Sverrir",
         name:"TheFirstGame",
         x:0,
         y:0,
@@ -195,7 +195,7 @@ describe('when make move command', function(){
       {
         id:"12348",
         event:"MoveMade",
-        userName:"Halli",
+        userName:"Eysteinn",
         name:"TheFirstGame",
         x:1,
         y:1,
@@ -205,7 +205,7 @@ describe('when make move command', function(){
       {
         id:"12349",
         event:"MoveMade",
-        userName:"Gulli",
+        userName:"Sverrir",
         name:"TheFirstGame",
         x:0,
         y:1,
@@ -216,7 +216,7 @@ describe('when make move command', function(){
       when={
         id:"12350",
         comm:"MakeMove",
-        userName : "Halli",
+        userName : "Eysteinn",
         x:1,
         y:2,
         side:'X',
@@ -226,7 +226,7 @@ describe('when make move command', function(){
       then=[{
         id:"12350",
         event:"MoveMade",
-        userName : "Halli",
+        userName : "Eysteinn",
         name:"TheFirstGame",
         x:1,
         y:2,
@@ -236,7 +236,7 @@ describe('when make move command', function(){
         {
         id:"12350",
         event:"X won, with three in middle row",
-        userName:"Halli",
+        userName:"Eysteinn",
         name:"TheFirstGame",
         x:1,
         y:2,
@@ -257,7 +257,7 @@ describe('when make move command', function(){
       given = given.concat([{
         id:"12346",
         event:"MoveMade",
-        userName:"Halli",
+        userName:"Eysteinn",
         name:"TheFirstGame",
         x:2,
         y:0,
@@ -267,7 +267,7 @@ describe('when make move command', function(){
       {
         id:"12347",
         event:"MoveMade",
-        userName:"Gulli",
+        userName:"Sverrir",
         name:"TheFirstGame",
         x:0,
         y:0,
@@ -277,7 +277,7 @@ describe('when make move command', function(){
       {
         id:"12348",
         event:"MoveMade",
-        userName:"Halli",
+        userName:"Eysteinn",
         name:"TheFirstGame",
         x:2,
         y:1,
@@ -287,7 +287,7 @@ describe('when make move command', function(){
       {
         id:"12349",
         event:"MoveMade",
-        userName:"Gulli",
+        userName:"Sverrir",
         name:"TheFirstGame",
         x:0,
         y:1,
@@ -298,7 +298,7 @@ describe('when make move command', function(){
       when={
         id:"12350",
         comm:"MakeMove",
-        userName : "Halli",
+        userName : "Eysteinn",
         x:2,
         y:2,
         side:'X',
@@ -308,7 +308,7 @@ describe('when make move command', function(){
       then=[{
         id:"12350",
         event:"MoveMade",
-        userName : "Halli",
+        userName : "Eysteinn",
         name:"TheFirstGame",
         x:2,
         y:2,
@@ -318,7 +318,7 @@ describe('when make move command', function(){
         {
         id:"12350",
         event:"X won, with three in bottom row",
-        userName:"Halli",
+        userName:"Eysteinn",
         name:"TheFirstGame",
         x:2,
         y:2,
@@ -338,7 +338,7 @@ describe('when make move command', function(){
       given = given.concat([{
         id:"12346",
         event:"MoveMade",
-        userName:"Halli",
+        userName:"Eysteinn",
         name:"TheFirstGame",
         x:0,
         y:0,
@@ -348,7 +348,7 @@ describe('when make move command', function(){
       {
         id:"12347",
         event:"MoveMade",
-        userName:"Gulli",
+        userName:"Sverrir",
         name:"TheFirstGame",
         x:0,
         y:1,
@@ -358,7 +358,7 @@ describe('when make move command', function(){
       {
         id:"12348",
         event:"MoveMade",
-        userName:"Halli",
+        userName:"Eysteinn",
         name:"TheFirstGame",
         x:1,
         y:0,
@@ -368,7 +368,7 @@ describe('when make move command', function(){
       {
         id:"12349",
         event:"MoveMade",
-        userName:"Gulli",
+        userName:"Sverrir",
         name:"TheFirstGame",
         x:1,
         y:1,
@@ -379,7 +379,7 @@ describe('when make move command', function(){
       when={
         id:"12350",
         comm:"MakeMove",
-        userName : "Halli",
+        userName : "Eysteinn",
         x:2,
         y:0,
         side:'X',
@@ -389,7 +389,7 @@ describe('when make move command', function(){
       then=[{
         id:"12350",
         event:"MoveMade",
-        userName : "Halli",
+        userName : "Eysteinn",
         name:"TheFirstGame",
         x:2,
         y:0,
@@ -399,7 +399,7 @@ describe('when make move command', function(){
         {
         id:"12350",
         event:"X won, with three in left column",
-        userName:"Halli",
+        userName:"Eysteinn",
         name:"TheFirstGame",
         x:2,
         y:0,
@@ -419,7 +419,7 @@ describe('when make move command', function(){
       given = given.concat([{
         id:"12346",
         event:"MoveMade",
-        userName:"Halli",
+        userName:"Eysteinn",
         name:"TheFirstGame",
         x:0,
         y:1,
@@ -429,7 +429,7 @@ describe('when make move command', function(){
       {
         id:"12347",
         event:"MoveMade",
-        userName:"Gulli",
+        userName:"Sverrir",
         name:"TheFirstGame",
         x:0,
         y:0,
@@ -439,7 +439,7 @@ describe('when make move command', function(){
       {
         id:"12348",
         event:"MoveMade",
-        userName:"Halli",
+        userName:"Eysteinn",
         name:"TheFirstGame",
         x:1,
         y:1,
@@ -449,7 +449,7 @@ describe('when make move command', function(){
       {
         id:"12349",
         event:"MoveMade",
-        userName:"Gulli",
+        userName:"Sverrir",
         name:"TheFirstGame",
         x:1,
         y:0,
@@ -460,7 +460,7 @@ describe('when make move command', function(){
       when={
         id:"12350",
         comm:"MakeMove",
-        userName : "Halli",
+        userName : "Eysteinn",
         x:2,
         y:1,
         side:'X',
@@ -470,7 +470,7 @@ describe('when make move command', function(){
       then=[{
         id:"12350",
         event:"MoveMade",
-        userName : "Halli",
+        userName : "Eysteinn",
         name:"TheFirstGame",
         x:2,
         y:1,
@@ -480,7 +480,7 @@ describe('when make move command', function(){
         {
         id:"12350",
         event:"X won, with three in middle column",
-        userName:"Halli",
+        userName:"Eysteinn",
         name:"TheFirstGame",
         x:2,
         y:1,
@@ -500,7 +500,7 @@ describe('when make move command', function(){
       given = given.concat([{
         id:"12346",
         event:"MoveMade",
-        userName:"Halli",
+        userName:"Eysteinn",
         name:"TheFirstGame",
         x:0,
         y:2,
@@ -510,7 +510,7 @@ describe('when make move command', function(){
       {
         id:"12347",
         event:"MoveMade",
-        userName:"Gulli",
+        userName:"Sverrir",
         name:"TheFirstGame",
         x:0,
         y:0,
@@ -520,7 +520,7 @@ describe('when make move command', function(){
       {
         id:"12348",
         event:"MoveMade",
-        userName:"Halli",
+        userName:"Eysteinn",
         name:"TheFirstGame",
         x:1,
         y:2,
@@ -530,7 +530,7 @@ describe('when make move command', function(){
       {
         id:"12349",
         event:"MoveMade",
-        userName:"Gulli",
+        userName:"Sverrir",
         name:"TheFirstGame",
         x:1,
         y:0,
@@ -541,7 +541,7 @@ describe('when make move command', function(){
       when={
         id:"12350",
         comm:"MakeMove",
-        userName : "Halli",
+        userName : "Eysteinn",
         x:2,
         y:2,
         side:'X',
@@ -551,7 +551,7 @@ describe('when make move command', function(){
       then=[{
         id:"12350",
         event:"MoveMade",
-        userName : "Halli",
+        userName : "Eysteinn",
         name:"TheFirstGame",
         x:2,
         y:2,
@@ -561,7 +561,7 @@ describe('when make move command', function(){
         {
         id:"12350",
         event:"X won, with three in right column",
-        userName:"Halli",
+        userName:"Eysteinn",
         name:"TheFirstGame",
         x:2,
         y:2,
@@ -581,7 +581,7 @@ describe('when make move command', function(){
       given = given.concat([{
         id:"12346",
         event:"MoveMade",
-        userName:"Halli",
+        userName:"Eysteinn",
         name:"TheFirstGame",
         x:0,
         y:0,
@@ -591,7 +591,7 @@ describe('when make move command', function(){
       {
         id:"12347",
         event:"MoveMade",
-        userName:"Gulli",
+        userName:"Sverrir",
         name:"TheFirstGame",
         x:0,
         y:1,
@@ -601,7 +601,7 @@ describe('when make move command', function(){
       {
         id:"12348",
         event:"MoveMade",
-        userName:"Halli",
+        userName:"Eysteinn",
         name:"TheFirstGame",
         x:1,
         y:1,
@@ -611,7 +611,7 @@ describe('when make move command', function(){
       {
         id:"12349",
         event:"MoveMade",
-        userName:"Gulli",
+        userName:"Sverrir",
         name:"TheFirstGame",
         x:1,
         y:0,
@@ -622,7 +622,7 @@ describe('when make move command', function(){
       when={
         id:"12350",
         comm:"MakeMove",
-        userName : "Halli",
+        userName : "Eysteinn",
         x:2,
         y:2,
         side:'X',
@@ -632,7 +632,7 @@ describe('when make move command', function(){
       then=[{
         id:"12350",
         event:"MoveMade",
-        userName : "Halli",
+        userName : "Eysteinn",
         name:"TheFirstGame",
         x:2,
         y:2,
@@ -642,7 +642,7 @@ describe('when make move command', function(){
         {
         id:"12350",
         event:"X won, with three in descending diagonal",
-        userName:"Halli",
+        userName:"Eysteinn",
         name:"TheFirstGame",
         x:2,
         y:2,
@@ -662,7 +662,7 @@ describe('when make move command', function(){
       given = given.concat([{
         id:"12346",
         event:"MoveMade",
-        userName:"Halli",
+        userName:"Eysteinn",
         name:"TheFirstGame",
         x:0,
         y:2,
@@ -672,7 +672,7 @@ describe('when make move command', function(){
       {
         id:"12347",
         event:"MoveMade",
-        userName:"Gulli",
+        userName:"Sverrir",
         name:"TheFirstGame",
         x:0,
         y:1,
@@ -682,7 +682,7 @@ describe('when make move command', function(){
       {
         id:"12348",
         event:"MoveMade",
-        userName:"Halli",
+        userName:"Eysteinn",
         name:"TheFirstGame",
         x:1,
         y:1,
@@ -692,7 +692,7 @@ describe('when make move command', function(){
       {
         id:"12349",
         event:"MoveMade",
-        userName:"Gulli",
+        userName:"Sverrir",
         name:"TheFirstGame",
         x:1,
         y:0,
@@ -703,7 +703,7 @@ describe('when make move command', function(){
       when={
         id:"12350",
         comm:"MakeMove",
-        userName : "Halli",
+        userName : "Eysteinn",
         x:2,
         y:0,
         side:'X',
@@ -713,7 +713,7 @@ describe('when make move command', function(){
       then=[{
         id:"12350",
         event:"MoveMade",
-        userName : "Halli",
+        userName : "Eysteinn",
         name:"TheFirstGame",
         x:2,
         y:0,
@@ -723,7 +723,7 @@ describe('when make move command', function(){
         {
         id:"12350",
         event:"X won, with three in ascending diagonal",
-        userName:"Halli",
+        userName:"Eysteinn",
         name:"TheFirstGame",
         x:2,
         y:0,
@@ -743,7 +743,7 @@ describe('when make move command', function(){
       given = given.concat([{
         id:"12346",
         event:"MoveMade",
-        userName:"Halli",
+        userName:"Eysteinn",
         name:"TheFirstGame",
         x:0,
         y:0,
@@ -753,7 +753,7 @@ describe('when make move command', function(){
       {
         id:"12347",
         event:"MoveMade",
-        userName:"Gulli",
+        userName:"Sverrir",
         name:"TheFirstGame",
         x:1,
         y:0,
@@ -763,7 +763,7 @@ describe('when make move command', function(){
       {
         id:"12348",
         event:"MoveMade",
-        userName:"Halli",
+        userName:"Eysteinn",
         name:"TheFirstGame",
         x:1,
         y:1,
@@ -773,7 +773,7 @@ describe('when make move command', function(){
       {
         id:"12349",
         event:"MoveMade",
-        userName:"Gulli",
+        userName:"Sverrir",
         name:"TheFirstGame",
         x:2,
         y:2,
@@ -783,7 +783,7 @@ describe('when make move command', function(){
       {
         id:"12350",
         event:"MoveMade",
-        userName:"Halli",
+        userName:"Eysteinn",
         name:"TheFirstGame",
         x:1,
         y:2,
@@ -793,7 +793,7 @@ describe('when make move command', function(){
       {
         id:"12351",
         event:"MoveMade",
-        userName:"Gulli",
+        userName:"Sverrir",
         name:"TheFirstGame",
         x:0,
         y:1,
@@ -803,7 +803,7 @@ describe('when make move command', function(){
       {
         id:"12352",
         event:"MoveMade",
-        userName:"Halli",
+        userName:"Eysteinn",
         name:"TheFirstGame",
         x:2,
         y:0,
@@ -813,7 +813,7 @@ describe('when make move command', function(){
       {
         id:"12353",
         event:"MoveMade",
-        userName:"Gulli",
+        userName:"Sverrir",
         name:"TheFirstGame",
         x:0,
         y:2,
@@ -824,7 +824,7 @@ describe('when make move command', function(){
       when={
         id:"12354",
         comm:"MakeMove",
-        userName : "Halli",
+        userName : "Eysteinn",
         x:2,
         y:1,
         side:'X',
@@ -834,7 +834,7 @@ describe('when make move command', function(){
       then=[{
         id:"12354",
         event:"MoveMade",
-        userName : "Halli",
+        userName : "Eysteinn",
         name:"TheFirstGame",
         x:2,
         y:1,
@@ -844,7 +844,7 @@ describe('when make move command', function(){
         {
         id:"12354",
         event:"Game ends with draw.",
-        userName:"Halli",
+        userName:"Eysteinn",
         name:"TheFirstGame",
         x:2,
         y:1,
