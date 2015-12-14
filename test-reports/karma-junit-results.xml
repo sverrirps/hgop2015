@@ -1,9 +1,9 @@
 <?xml version="1.0"?>
-<testsuite name="Firefox 38.0.0 (Linux 0.0.0)" package="karma" timestamp="2015-12-13T15:22:15" id="0" hostname="centos-nodejs-dev" tests="1" errors="0" failures="0" time="0.05">
+<testsuite name="Firefox 38.0.0 (Linux 0.0.0)" package="karma" timestamp="2015-12-14T09:33:06" id="0" hostname="centos-nodejs-dev" tests="1" errors="0" failures="0" time="0.063">
   <properties>
     <property name="browser.fullName" value="Mozilla/5.0 (X11; Linux x86_64; rv:38.0) Gecko/20100101 Firefox/38.0"/>
   </properties>
-  <testcase name="should attach a list of things to the scope" time="0.05" classname="karma.Controller: MainCtrl"/>
+  <testcase name="should attach a list of things to the scope" time="0.063" classname="karma.Controller: MainCtrl"/>
   <system-out>
     <![CDATA[
 ]]>
