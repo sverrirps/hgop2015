@@ -1,73 +1,134 @@
 var should = require('should');
 var request = require('supertest');
 var acceptanceUrl = process.env.ACCEPTANCE_URL;
+var async = require('async');
+var theId = 1992;
 
-function given(userApi) {
-  var _expectedEvents=[{
-    "id": "1234",
-    "gameId": userApi._command.gameId,
-    "event": "EventName",
-    "userName": userApi._command.userName,
-    "timeStamp": "2014-12-02T11:29:29",
-    "name": userApi._command.gameId
-  }];
-  var _currentEvent = 0;
-  var expectApi = {
-    withName: function (gameName) {
-      _expectedEvents[_currentEvent].name = gameName;
-      return expectApi;
-    },
-    expect: function (eventName) {
-      _expectedEvents[_currentEvent].event = eventName;
-      return expectApi;
-    },
-    isOk: function (done) {
-      var req = request(acceptanceUrl);
-      req
-        .post('/api/createGame')
-        .type('json')
-        .send(userApi._command)
-        .end(function (err, res) {
-          if (err) return done(err);
-          request(acceptanceUrl)
-            .get('/api/gameHistory/' + userApi._command.gameId)
-            .expect(200)
-            .expect('Content-Type', /json/)
-            .end(function (err, res) {
-              if (err) return done(err);
-              res.body.should.be.instanceof(Array);
-              should(res.body).eql(
-                _expectedEvents);
-              done();
-            });
-        });
-      return expectApi;
-    },
+
+function BuildingRightCommand(_command) {
+  var command = {
+    id: theId.toString(),
+    gameId: _command.gameId,
+    comm: _command.comm,
+    userName: _command.userName,
   };
 
-  return expectApi;
+  if (_command.comm === 'MakeMove') {
+    command.symbol = _command.symbol;
+    command.x = _command.x;
+    command.y = _command.y;
+  }
+
+  theId++;
+  return command;
 }
 
 function user(userName) {
+  var commands = [];
+  var _currentCommand = commands.length - 1;
   var userApi = {
-    _command: undefined,
     createsGame: function (gameId) {
-      userApi._command = {
-        id: "1234",
-        gameId: gameId,
-        comm: "CreateGame",
-        userName: userName,
-        timeStamp: "2014-12-02T11:29:29",
-        name: gameId
-      };
+      commands.push({
+          gameId: gameId,
+          comm: 'CreateGame',
+          userName: userName
+      });
       return userApi;
     },
-    withId : function(gameId){
-      userApi._command.gameId = gameId;
+    joinsGame: function (gameId) {
+      commands.push({
+          gameId: gameId,
+          comm: 'JoinGame',
+          userName: userName
+      });
       return userApi;
+    },
+    makesMove: function (x, y) {
+      commands.push({
+        comm: "MakeMove",
+        userName: userName,
+        x: x,
+        y: y
+      });
+      return userApi;
+    },
+    inGame: function(gameId){
+      commands[commands.length - 1].gameId = gameId;
+      return userApi;
+    },
+    putsDown: function (symbol) {
+      commands[commands.length - 1].symbol = symbol;
+      return userApi;
+    },
+    allCommandsByUser: function() {
+      return commands;
     }
   };
   return userApi
+}
+
+function given(userApi) {
+  var expectedEventList=[];
+  var _currentEvent = expectedEventList.length - 1;
+  var expectApi = {
+    expect: function (eventName) {
+      expectedEventList.push({
+        event: eventName
+      });
+      return expectApi;
+    },
+    withGameName: function (gameName) {
+      expectedEventList[expectedEventList.length - 1].gameName = gameName;
+      return expectApi;
+    },
+    withGameID: function (gameId) {
+      expectedEventList[expectedEventList.length - 1].gameId = gameId;
+      return expectApi;
+    },
+    byUser: function (userName) {
+      expectedEventList[expectedEventList.length - 1].userName = userName;
+      return expectApi;
+    },
+    and: function (commands) {
+      userApi = userApi.concat(commands);
+      return expectApi;
+    },
+    isOk: function (done) {
+      async.eachSeries(userApi, (usrCmd, callback) => {
+        var req = request(acceptanceUrl);
+        var cmd = BuildingRightCommand(usrCmd);
+        var url = '';
+
+        if (usrCmd.comm === 'MakeMove') {
+          url = '/api/placeMove';
+        } else {
+          url = '/api/' + usrCmd.comm;
+        }
+        req
+        .post(url)
+        .type('json')
+        .send(cmd)
+        .expect(200)
+        .expect('Content-Type', /json/)
+        .end((err, res) => {
+          if (err) return done(err);
+          res.body.should.be.instanceof(Array);
+          callback();
+        });
+      }, () => {
+        request(acceptanceUrl)
+            .get('/api/gameHistory/' + userApi[0].gameId)
+            .expect(200)
+            .expect('Content-Type', /json/)
+            .end((err, res) => {
+              if (err) return done(err);
+              done();
+            });
+        });
+      },
+    };
+
+    return expectApi;
 }
 
 module.exports.user = user;

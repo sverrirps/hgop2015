@@ -20,7 +20,7 @@ describe('TEST ENV GET /api/gameHistory', function () {
       id: "1234",
       gameId: "100000",
       comm: "CreateGame",
-      userName: "Gulli",
+      userName: "Sverrir",
       name: "TheFirstGame",
       timeStamp: "2014-12-02T11:29:29"
     };
@@ -44,7 +44,7 @@ describe('TEST ENV GET /api/gameHistory', function () {
                 "id": "1234",
                 "gameId": "100000",
                 "event": "GameCreated",
-                "userName": "Gulli",
+                "userName": "Sverrir",
                 "name": "TheFirstGame",
                 "timeStamp": "2014-12-02T11:29:29"
               }]);
@@ -53,10 +53,27 @@ describe('TEST ENV GET /api/gameHistory', function () {
       });
   });
 
-
+    console.log("fyrir");
    it('Should execute fluid API test', function (done) {
-     given(user("YourUser").createsGame("TheFirstGame"))
-     .expect("GameCreated").withName("TheFirstGame").isOk(done);
+     given(user("Sverrir").createsGame("3456").allCommandsByUser())
+     .expect("GameCreated").withGameID("3456").isOk(done);
    });
+   console.log("eftir");
+
+   it('Should keep playing until one is winner or results with draw', function (done) {
+
+     given(user("Dr Jekyll").createsGame("2345").allCommandsByUser())
+      .and(user("Mr Hyde").joinsGame("2345").allCommandsByUser())
+      .and(user("Dr Jekyll").makesMove(1,1).inGame("2345").putsDown('X').allCommandsByUser())
+      .and(user("Mr Hyde").makesMove(2,0).inGame("2345").putsDown('O').allCommandsByUser())
+      .and(user("Dr Jekyll").makesMove(2,2).inGame("2345").putsDown('X').allCommandsByUser())
+      .and(user("Mr Hyde").makesMove(0,0).inGame("2345").putsDown('O').allCommandsByUser())
+      .and(user("Dr Jekyll").makesMove(1,0).inGame("2345").putsDown('X').allCommandsByUser())
+      .and(user("Mr Hyde").makesMove(1,2).inGame("2345").putsDown('O').allCommandsByUser())
+      .and(user("Dr Jekyll").makesMove(0,1).inGame("2345").putsDown('X').allCommandsByUser())
+      .and(user("Mr Hyde").makesMove(2,1).inGame("2345").putsDown('O').allCommandsByUser())
+      .and(user("Dr Jekyll").makesMove(0,2).inGame("2345").putsDown('X').allCommandsByUser())
+      .expect("Game ends with draw.").isOk(done);
+   })
 
 });
