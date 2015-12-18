@@ -6,8 +6,8 @@ eftir
 [2K[0G  [32m  ✓[0m[90m Should have ACCEPTANCE_URL environment variable exported. [0m
 [2K[0G  [32m  ✓[0m[90m should execute same test using old style [0m[33m(48ms)[0m
 [2K[0G  [32m  ✓[0m[90m Should execute fluid API test [0m
-[2K[0G  [32m  ✓[0m[90m Should keep playing until one is winner or results with draw [0m[33m(40ms)[0m
+[2K[0G  [32m  ✓[0m[90m Should keep playing until one is winner or results with draw [0m[33m(42ms)[0m
 
 
-[92m [0m[32m 4 passing[0m[90m (113ms)[0m
+[92m [0m[32m 4 passing[0m[90m (131ms)[0m
 
