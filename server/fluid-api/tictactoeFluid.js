@@ -5,7 +5,7 @@ var async = require('async');
 var theId = 1992;
 
 
-function BuildingRightCommand(_command) {
+function buildingRightCommand(_command) {
   var command = {
     id: theId.toString(),
     gameId: _command.gameId,
@@ -96,7 +96,7 @@ function given(userApi) {
     isOk: function (done) {
       async.eachSeries(userApi, (usrCmd, callback) => {
         var req = request(acceptanceUrl);
-        var cmd = BuildingRightCommand(usrCmd);
+        var cmd = buildingRightCommand(usrCmd);
         var url = '';
 
         if (usrCmd.comm === 'MakeMove') {
