@@ -29,7 +29,7 @@ Við þurfum að vera með bæði development virtual vélina og test virtual v�
 
 ##Load tests/Capacity tests
 
-Ég gef virtual vélinni 3GB af minni til að vinna með. Ég fæ fínar niðurstöður og get leikið 100 leiki á innan við 3 sekúndum. Niðurstaðan er yfirleitt í kringum 2.2 til 2.3 sekúndur svo þó ég bæti við 20-30% þá helst það samt undir 3 sekúndum.
+Ég gef virtual vélinni 3GB af minni til að vinna með. Ég fæ fínar niðurstöður og get leikið 100 leiki á innan við 3 sekúndum. Niðurstaðan er yfirleitt í kringum 2.2 til 2.5 sekúndur svo til þess að ég geti bætt 20-30% við, þá set ég testið á 4 sekúndur.
 
 ##Does the load test run in serial or in parallel?
 
