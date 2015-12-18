@@ -23,3 +23,14 @@ Node.js er open-source, cross-platform runtime umhverfi fyrir þróun server-sid
 Bower er pakka stjóri (e. packet manager) fyrir JavaScript söfn sem gera þér kleift að skilgreina, endurútgefa og lagfæra dependencies.
 
 
+##Topology of the deployment so far
+
+Við þurfum að vera með bæði development virtual vélina og test virtual vélina keyrandi svo að build ferlið virki. Undir venjulegum kringumstæðum væri test vélin á annari vél sem hægt væri að gera ráð fyrir að væri alltaf keyrandi. Hægt er að tengjast test vélinni frá dev vélinni með ssh og ip addressunni á test vélinni, þar sem dev vélin hefur lykil að test vélinni og þarf ekki að gefa upp lykilorð til að tengjast henni. Dev vélin getur þá uppfært og keyrt aftur á test vélinni.
+
+##Load tests/Capacity tests
+
+Ég gef virtual vélinni 3GB af minni til að vinna með. Ég fæ fínar niðurstöður og get leikið 100 leiki á innan við 3 sekúndum. Niðurstaðan er yfirleitt í kringum 2.2 til 2.3 sekúndur svo þó ég bæti við 20-30% þá helst það samt undir 3 sekúndum.
+
+##Does the load test run in serial or in parallel?
+
+Load testin keyrast samhliða. Í Node er notað það sem heitir asynchronous I/O sem geyrir því kleipt að spila leikina á sama tíma og tékkar hvort allir leikirnir klárast innan gefins tíma, annars pass-a prófin ekki.
